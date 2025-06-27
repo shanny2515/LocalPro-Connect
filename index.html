@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>LocalPro Connect</title>
+  </head>
+  <body>
+    <header id="first">
+      <h1>DISCOVER CONVINIENT LOCAL SERVICES, INSTANTLY</h1>
+      <button type="button" id="started">Get Started</button>
+    </header>
+    <div id="servicesList"></div>
+    <div id="serviceDetails" style="display: none;">
+      <div id="providers"></div>
+      <div id="schedule"></div>
+      <form id="form">
+        <button type="submit">Book Now</button>
+      </form>
+    </div>
+    <script src="./index.js"></script>
+  </body>
 </html>

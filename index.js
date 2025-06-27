@@ -4,7 +4,7 @@ const  bookEndPoint = "http://localhost:3000/bookings"
 document.addEventListener('DOMContentLoaded' , async ()=>{
      const getStarted = document.getElementById('started')
      getStarted.addEventListener('click', ()=>{
-        document.getElementById('servicesList').style.display = 'block'
+        document.getElementById('servicesList').style.display = 'flex'
         document.getElementById('first').style.display = 'none'
      })
      await loadServices();
@@ -17,18 +17,22 @@ document.addEventListener('DOMContentLoaded' , async ()=>{
 function renderServices(services){
     const list = document.getElementById('servicesList')
     list.innerHTML = ''
-    list.style.display = 'none'
+    list.style.display='none'
+    const h2 = document.createElement('h2')
+    h2.textContent = "Select a service below to view providers and book your appointment."
+    h2.className = "head2"
+    list.appendChild(h2)
     services.forEach(service => {
        const div = document.createElement('div') 
-       div.classList = "serviceCard"
+       div.className = "serviceCard"
+       div.classList.add( 'bg-white', 'p-6', 'rounded-lg', 'shadow-lg','w-full','sm:w-1/2', 'md:w-1/3', 'lg:w-1/4',);
        div.innerHTML=`
        <h3>${service.name}</h3>
        <p><strong>Category:</strong>${service.category}</p>
        <p><strong>Duration:</strong>${service.durationMinutes}</p>
        <p><strong>Price:</strong>${service.priceKsh}</p>
-       <p>${service.description}</p>
-       <button class="viewDetails">View providers</button>`
-
+       <p>${service.description}</p><br>
+       <button type="button" class="viewDetails">View providers</button><br><br>`
        div.querySelector('.viewDetails').addEventListener('click', async () =>{
          await showServiceDetails(service)
        });
@@ -38,7 +42,7 @@ function renderServices(services){
 async function showServiceDetails(service){
     document.getElementById('servicesList').style.display = 'none'
     const detailsContainer = document.getElementById('serviceDetails')
-    detailsContainer.style.display = 'block'
+    detailsContainer.style.display = 'flex'
     detailsContainer.innerHTML= `
     <button id ="back">Back to Services</button>
     <div id="providers"></div>
@@ -51,12 +55,12 @@ async function showServiceDetails(service){
     </form>`
     document.getElementById('back').addEventListener('click', ()=>{
         document.getElementById('serviceDetails').style.display = 'none'
-        document.getElementById('servicesList').style.display = "block"
+        document.getElementById('servicesList').style.display = "flex"
     })
      try{
         const [providersRes , scheduleRes]= await Promise.all([
             fetch (`http://localhost:3000/providers`),
-            fetch (`http://localhost:3000/schedule?serviceId=${service.id}`)
+            fetch (`http://localhost:3000/schedule`)
         ]);
         if(!providersRes.ok || !scheduleRes.ok){
             console.log('Failed to fetch the details');
@@ -67,7 +71,6 @@ async function showServiceDetails(service){
 
         renderProviders(providers)
         renderSchedule(schedule)
-        resetBookingForm()
      } catch (error) {
         console.error('An error occurred while fetching service details:', error);
      }

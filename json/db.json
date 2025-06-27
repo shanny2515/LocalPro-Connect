@@ -1,335 +1,221 @@
 {
-    "services":[
-        {
-          "id": "svc_001",
-          "name": "Men's Haircut & Shave",
-          "category": "Hair & Barber",
-          "durationMinutes": 45,
-          "priceKsh": 800,
-          "description": "Classic haircut with a clean shave."
-        },
-        {
-          "id": "svc_002",
-          "name": "Women's Hair Styling",
-          "category": "Hair & Barber",
-          "durationMinutes": 90,
-          "priceKsh": 2500,
-          "description": "Wash, cut, and blow-dry styling."
-        },
-        {
-          "id": "svc_003",
-          "name": "Basic Plumbing Fix",
-          "category": "Home Services",
-          "durationMinutes": 120,
-          "priceKsh": 3500,
-          "description": "Fixing leaks, clogged drains, or minor pipe issues."
-        },
-        {
-          "id": "svc_004",
-          "name": "Standard Car Wash",
-          "category": "Auto Care",
-          "durationMinutes": 60,
-          "priceKsh": 600,
-          "description": "Exterior wash, interior vacuuming, tire shine."
-        },
-        {
-          "id": "svc_005",
-          "name": "Beginner Yoga Session",
-          "category": "Wellness & Fitness",
-          "durationMinutes": 60,
-          "priceKsh": 1200,
-          "description": "Introductory yoga class focusing on basic poses and breathing."
-        },
-        {
-          "id": "svc_006",
-          "name": "Home Cleaning (2-3 Bed)",
-          "category": "Home Services",
-          "durationMinutes": 180,
-          "priceKsh": 4000,
-          "description": "Thorough cleaning for 2-3 bedroom apartments/houses."
-        }
-      ],"providers": [
-        {
-          "id": "prov_A",
-          "name": "The Executive Barbershop",
-          "location": "Westlands, Nairobi",
-          "contactPhone": "0712345678",
-          "servicesOffered": ["svc_001"],
-          "rating": 4.7,
-          "description": "Premium grooming services for men."
-        },
-        {
-          "id": "prov_B",
-          "name": "Glamour Hair Studio",
-          "location": "Kilimani, Nairobi",
-          "contactPhone": "0723456789",
-          "servicesOffered": ["svc_002"],
-          "rating": 4.9,
-          "description": "Trendsetting styles and personalized hair care for women."
-        },
-        {
-          "id": "prov_C",
-          "name": "Nairobi Fix-It Plumbers",
-          "location": "Upper Hill, Nairobi",
-          "contactPhone": "0734567890",
-          "servicesOffered": ["svc_003"],
-          "rating": 4.5,
-          "description": "Reliable and swift plumbing solutions."
-        },
-        {
-          "id": "prov_D",
-          "name": "Sparkle Auto Spa",
-          "location": "Karen, Nairobi",
-          "contactPhone": "0745678901",
-          "servicesOffered": ["svc_004"],
-          "rating": 4.6,
-          "description": "Eco-friendly car wash and detailing services."
-        },
-        {
-          "id": "prov_E",
-          "name": "Zenith Yoga & Wellness",
-          "location": "Lavington, Nairobi",
-          "contactPhone": "0756789012",
-          "servicesOffered": ["svc_005"],
-          "rating": 4.8,
-          "description": "Holistic wellness studio offering various yoga classes."
-        },
-        {
-          "id": "prov_F",
-          "name": "Clean Sweep Maids",
-          "location": "Runda, Nairobi",
-          "contactPhone": "0767890123",
-          "servicesOffered": ["svc_006"],
-          "rating": 4.7,
-          "description": "Professional and trustworthy home cleaning services."
-        }
-      ],"schedule": [
-        {
-          "providerId": "prov_A",
-          "dayOfWeek": "Monday",
-          "startTime": "09:00",
-          "endTime": "18:00"
-        },
-        {
-          "providerId": "prov_A",
-          "dayOfWeek": "Tuesday",
-          "startTime": "09:00",
-          "endTime": "18:00"
-        },
-        {
-          "providerId": "prov_A",
-          "dayOfWeek": "Wednesday",
-          "startTime": "09:00",
-          "endTime": "18:00"
-        },
-        {
-          "providerId": "prov_A",
-          "dayOfWeek": "Thursday",
-          "startTime": "09:00",
-          "endTime": "18:00"
-        },
-        {
-          "providerId": "prov_A",
-          "dayOfWeek": "Friday",
-          "startTime": "09:00",
-          "endTime": "19:00"
-        },
-        {
-          "providerId": "prov_A",
-          "dayOfWeek": "Saturday",
-          "startTime": "10:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_B",
-          "dayOfWeek": "Tuesday",
-          "startTime": "10:00",
-          "endTime": "19:00"
-        },
-        {
-          "providerId": "prov_B",
-          "dayOfWeek": "Wednesday",
-          "startTime": "10:00",
-          "endTime": "19:00"
-        },
-        {
-          "providerId": "prov_B",
-          "dayOfWeek": "Thursday",
-          "startTime": "10:00",
-          "endTime": "19:00"
-        },
-        {
-          "providerId": "prov_B",
-          "dayOfWeek": "Friday",
-          "startTime": "10:00",
-          "endTime": "20:00"
-        },
-        {
-          "providerId": "prov_B",
-          "dayOfWeek": "Saturday",
-          "startTime": "10:00",
-          "endTime": "18:00"
-        },
-        {
-          "providerId": "prov_C",
-          "dayOfWeek": "Monday",
-          "startTime": "08:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_C",
-          "dayOfWeek": "Tuesday",
-          "startTime": "08:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_C",
-          "dayOfWeek": "Wednesday",
-          "startTime": "08:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_C",
-          "dayOfWeek": "Thursday",
-          "startTime": "08:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_C",
-          "dayOfWeek": "Friday",
-          "startTime": "08:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_D",
-          "dayOfWeek": "Monday",
-          "startTime": "07:00",
-          "endTime": "16:00"
-        },
-        {
-          "providerId": "prov_D",
-          "dayOfWeek": "Tuesday",
-          "startTime": "07:00",
-          "endTime": "16:00"
-        },
-        {
-          "providerId": "prov_D",
-          "dayOfWeek": "Wednesday",
-          "startTime": "07:00",
-          "endTime": "16:00"
-        },
-        {
-          "providerId": "prov_D",
-          "dayOfWeek": "Thursday",
-          "startTime": "07:00",
-          "endTime": "16:00"
-        },
-        {
-          "providerId": "prov_D",
-          "dayOfWeek": "Friday",
-          "startTime": "07:00",
-          "endTime": "16:00"
-        },
-        {
-          "providerId": "prov_D",
-          "dayOfWeek": "Saturday",
-          "startTime": "08:00",
-          "endTime": "15:00"
-        },
-        {
-          "providerId": "prov_E",
-          "dayOfWeek": "Monday",
-          "startTime": "07:00",
-          "endTime": "10:00"
-        },
-        {
-          "providerId": "prov_E",
-          "dayOfWeek": "Wednesday",
-          "startTime": "07:00",
-          "endTime": "10:00"
-        },
-        {
-          "providerId": "prov_E",
-          "dayOfWeek": "Friday",
-          "startTime": "07:00",
-          "endTime": "10:00"
-        },
-        {
-          "providerId": "prov_E",
-          "dayOfWeek": "Saturday",
-          "startTime": "09:00",
-          "endTime": "13:00"
-        },
-        {
-          "providerId": "prov_F",
-          "dayOfWeek": "Monday",
-          "startTime": "09:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_F",
-          "dayOfWeek": "Tuesday",
-          "startTime": "09:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_F",
-          "dayOfWeek": "Wednesday",
-          "startTime": "09:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_F",
-          "dayOfWeek": "Thursday",
-          "startTime": "09:00",
-          "endTime": "17:00"
-        },
-        {
-          "providerId": "prov_F",
-          "dayOfWeek": "Friday",
-          "startTime": "09:00",
-          "endTime": "17:00"
-        }
-      ],"bookings":[
-        {
-          "id": "b_001",
-          "providerId": "prov_A",
-          "serviceId": "svc_001",
-          "date": "2025-06-26",
-          "startTime": "10:00",
-          "endTime": "10:45",
-          "customerName": "John Doe",
-          "customerPhone": "0711223344"
-        },
-        {
-          "id": "b_002",
-          "providerId": "prov_A",
-          "serviceId": "svc_001",
-          "date": "2025-06-26",
-          "startTime": "11:00",
-          "endTime": "11:45",
-          "customerName": "Alice Mwangi",
-          "customerPhone": "0711334455"
-        },
-        {
-          "id": "b_003",
-          "providerId": "prov_B",
-          "serviceId": "svc_002",
-          "date": "2025-06-27",
-          "startTime": "14:00",
-          "endTime": "15:30",
-          "customerName": "Brenda Onyango",
-          "customerPhone": "0722334455"
-        },
-        {
-          "id": "b_004",
-          "providerId": "prov_C",
-          "serviceId": "svc_003",
-          "date": "2025-06-27",
-          "startTime": "09:00",
-          "endTime": "11:00",
-          "customerName": "David Kamau",
-          "customerPhone": "0733445566"
-        }
-      ]
-}
+    "services": [
+      {
+        "id": "svc_001",
+        "name": "Men's Haircut & Shave",
+        "category": "Hair & Barber",
+        "durationMinutes": 45,
+        "priceKsh": 800,
+        "description": "Classic haircut with a clean shave."
+      },
+      {
+        "id": "svc_002",
+        "name": "Women's Hair Styling",
+        "category": "Hair & Barber",
+        "durationMinutes": 90,
+        "priceKsh": 2500,
+        "description": "Wash, cut, and blow-dry styling."
+      },
+      {
+        "id": "svc_003",
+        "name": "Basic Plumbing Fix",
+        "category": "Home Services",
+        "durationMinutes": 120,
+        "priceKsh": 3500,
+        "description": "Fixing leaks, clogged drains, or minor pipe issues."
+      },
+      {
+        "id": "svc_004",
+        "name": "Standard Car Wash",
+        "category": "Auto Care",
+        "durationMinutes": 60,
+        "priceKsh": 600,
+        "description": "Exterior wash, interior vacuuming, tire shine."
+      },
+      {
+        "id": "svc_006",
+        "name": "Home Cleaning (2-3 Bed)",
+        "category": "Home Services",
+        "durationMinutes": 180,
+        "priceKsh": 4000,
+        "description": "Thorough cleaning for 2-3 bedroom apartments/houses."
+      },
+      {
+        "id": "svc_008",
+        "name": "Manicure & Pedicure",
+        "category": "Nails & Beauty",
+        "durationMinutes": 90,
+        "priceKsh": 1500,
+        "description": "Complete nail care for hands and feet."
+      },
+      {
+        "id": "svc_005",
+        "name": "Laundry Services",
+        "category": "Home Services",
+        "durationMinutes": 120,
+        "priceKsh": 1500,
+        "description": "Professional wash, dry, and fold laundry service."
+      }
+    ],
+    "providers": [
+      {
+        "id": "prov_01",
+        "name": "The Executive Barbershop",
+        "location": "Westlands, Nairobi",
+        "contactPhone": "0712345678",
+        "servicesOffered": ["svc_001"],
+        "rating": 4.7,
+        "description": "Premium grooming services for men."
+      },
+      {
+        "id": "prov_02",
+        "name": "Glamour Hair Studio",
+        "location": "Kilimani, Nairobi",
+        "contactPhone": "0723456789",
+        "servicesOffered": ["svc_002", "svc_008"],
+        "rating": 4.9,
+        "description": "Trendsetting styles and personalized hair & nail care."
+      },
+      {
+        "id": "prov_03",
+        "name": "Nairobi Fix-It Plumbers",
+        "location": "Upper Hill, Nairobi",
+        "contactPhone": "0734567890",
+        "servicesOffered": ["svc_003"],
+        "rating": 4.5,
+        "description": "Reliable and swift plumbing solutions."
+      },
+      {
+        "id": "prov_04",
+        "name": "Sparkle Auto Spa",
+        "location": "Karen, Nairobi",
+        "contactPhone": "0745678901",
+        "servicesOffered": ["svc_004"],
+        "rating": 4.6,
+        "description": "Eco-friendly car wash and detailing services."
+      },
+      {
+        "id": "prov_06",
+        "name": "Clean Sweep Maids",
+        "location": "Runda, Nairobi",
+        "contactPhone": "0767890123",
+        "servicesOffered": ["svc_006"],
+        "rating": 4.7,
+        "description": "Professional and trustworthy home cleaning services."
+      },
+      {
+        "id": "prov_08",
+        "name": "Swift Laundry Solutions",
+        "location": "Hurlingham, Nairobi",
+        "contactPhone": "0789012345",
+        "servicesOffered": ["svc_005"],
+        "rating": 4.6,
+        "description": "Express laundry services for busy individuals."
+      },
+      {
+        "id": "prov_07",
+        "name": "Tech Savvy Repairs",
+        "location": "CBD, Nairobi",
+        "contactPhone": "0778901234",
+        "servicesOffered": ["svc_009"],
+        "rating": 4.4,
+        "description": "Expert repairs for laptops and smartphones. (Note: svc_009 kept as an example, but not directly linked to a primary service here for simplicity. Could be removed if not needed for the core 7.)"
+      }
+    ],
+    "schedule": [
+      {
+        "providerId": "prov_01",
+        "dayOfWeek": "Monday-Saturday",
+        "startTime": "10:00",
+        "endTime": "21:00"
+      },
+      {
+        "providerId": "prov_02",
+        "dayOfWeek": "Monday-Saturday",
+        "startTime": "09:00",
+        "endTime": "18:00"
+      },
+      {
+        "providerId": "prov_03",
+        "dayOfWeek": "Monday-Friday",
+        "startTime": "08:00",
+        "endTime": "17:00"
+      },
+      {
+        "providerId": "prov_04",
+        "dayOfWeek": "Monday-Sunday",
+        "startTime": "07:00",
+        "endTime": "16:00"
+      },
+      {
+        "providerId": "prov_06",
+        "dayOfWeek": "Monday-Sunday",
+        "startTime": "09:00",
+        "endTime": "17:00"
+      },
+      {
+        "providerId": "prov_08",
+        "dayOfWeek": "Monday-Saturday",
+        "startTime": "08:00",
+        "endTime": "18:00"
+      },
+      {
+        "providerId": "prov_07",
+        "dayOfWeek": "Tuesday-Saturday",
+        "startTime": "10:00",
+        "endTime": "19:00"
+      }
+    ],
+    "bookings": [
+      {
+        "id": "b_001",
+        "providerId": "prov_01",
+        "serviceId": "svc_001",
+        "date": "2025-06-27",
+        "startTime": "10:00",
+        "endTime": "10:45",
+        "customerName": "John Doe",
+        "customerPhone": "0711223344"
+      },
+      {
+        "id": "b_002",
+        "providerId": "prov_01",
+        "serviceId": "svc_001",
+        "date": "2025-06-27",
+        "startTime": "11:00",
+        "endTime": "11:45",
+        "customerName": "Alice Mwangi",
+        "customerPhone": "0711334455"
+      },
+      {
+        "id": "b_003",
+        "providerId": "prov_02",
+        "serviceId": "svc_002",
+        "date": "2025-06-28",
+        "startTime": "14:00",
+        "endTime": "15:30",
+        "customerName": "Brenda Onyango",
+        "customerPhone": "0722334455"
+      },
+      {
+        "id": "b_004",
+        "providerId": "prov_03",
+        "serviceId": "svc_003",
+        "date": "2025-06-30",
+        "startTime": "09:00",
+        "endTime": "11:00",
+        "customerName": "David Kamau",
+        "customerPhone": "0733445566"
+      },
+      {
+        "id": "b_005",
+        "providerId": "prov_04",
+        "serviceId": "svc_004",
+        "date": "2025-07-01",
+        "startTime": "07:00",
+        "endTime": "08:00",
+        "customerName": "Emily Chege",
+        "customerPhone": "0744556677"
+      }
+    ]
+  }

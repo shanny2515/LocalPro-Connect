@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded' , async ()=>{
      await loadServices();
 })
  async function loadServices(){
-   const res =  await fetch("http://localhost:3000/services");
+   const res =  await fetch("https://database-d35q.onrender.com/services");
    const services = await res.json();
     return renderServices(services)
 }
@@ -58,8 +58,8 @@ async function showServiceDetails(service) {
 
     try {
         const [providersRes, scheduleRes] = await Promise.all([
-            fetch('http://localhost:3000/providers'),
-            fetch('http://localhost:3000/schedule')
+            fetch('https://database-d35q.onrender.com/providers'),
+            fetch('https://database-d35q.onrender.com/schedule')
         ]);
         if (!providersRes.ok || !scheduleRes.ok) {
             console.log('Failed to fetch the details');
@@ -141,7 +141,7 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
         return;
       }
       try{
-        const response = await fetch('http://localhost:3000/bookings', {
+        const response = await fetch('https://database-d35q.onrender.com/bookings', {
             method:'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(bookingData)

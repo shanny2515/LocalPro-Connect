@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css" />
     <title>LocalPro Connect</title>
   </head>
   <body  class="bg-sky-100">
+    <div class="container-fluid"></div>
     <header id="first" class="border shadow-xl/30 p-25 bg-sky-50 " >
       <h1 class="bg-linear-to-r from-blue-950 to-gray-950 bg-clip-text text-5xl font-extrabold text-transparent text-shadow-lg ">DISCOVER CONVINIENT LOCAL SERVICES, INSTANTLY</h1>
       <div style="text-align: center;">
@@ -15,12 +17,13 @@
       </div>
     </header>
     <div id="servicesList" class="m-20 flex flex-wrap gap-4 justify-center"></div>
-    <div id="serviceDetails" style="display: none;">
+    <div id="serviceDetails" style="display: none;"  class=" flex flex-col gap-y-10 justify-items-center p-20">
       <div id="providers"></div>
       <div id="schedule"></div>
       <form id="form">
         <button type="submit">Book Now</button>
       </form>
+    </div>
     </div>
     <script src="./index.js"></script>
   </body>

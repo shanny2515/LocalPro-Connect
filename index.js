@@ -136,7 +136,7 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
         request: document.getElementById('request').value.trim()
     };
 
-    if (!bookingData.customerName || !bookingData.customerPhone || !bookingData.startTime || !bookingData.endTime || !bookingData.date) {
+    if (!bookingData.customerName || !bookingData.customerPhone || !bookingData.time || !bookingData.date) {
         alert('Please fill in all required fields.');
         return;
       }

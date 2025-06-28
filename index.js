@@ -59,7 +59,7 @@ async function showServiceDetails(service) {
     try {
         const [providersRes, scheduleRes] = await Promise.all([
             fetch('https://database-csvk.onrender.com/providers'),
-            fetch('hhttps://database-csvk.onrender.com/schedule')
+            fetch('https://database-csvk.onrender.com/schedule')
         ]);
         if (!providersRes.ok || !scheduleRes.ok) {
             console.log('Failed to fetch the details');

@@ -39,79 +39,85 @@ function renderServices(services){
        list.appendChild(div)
     });
 }
-async function showServiceDetails(service){
-    document.getElementById('servicesList').style.display = 'none'
-    const detailsContainer = document.getElementById('serviceDetails')
-    detailsContainer.style.display = 'flex'
-    detailsContainer.innerHTML= `
-    <button id ="back">Back to Services</button>
-    <div id="providers"></div>
-    <div id="schedule"></div>
-    <form id="form">
-      <!-- Your booking form fields here -->
-      <input type="text" name="customerName" placeholder="Your Name" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
-      <button type="submit">Book Now</button>
-    </form>`
-    document.getElementById('back').addEventListener('click', ()=>{
-        document.getElementById('serviceDetails').style.display = 'none'
-        document.getElementById('servicesList').style.display = "flex"
-    })
-     try{
-        const [providersRes , scheduleRes]= await Promise.all([
-            fetch (`http://localhost:3000/providers`),
-            fetch (`http://localhost:3000/schedule`)
+async function showServiceDetails(service) {
+    document.getElementById('servicesList').style.display = 'none';
+    const detailsContainer = document.getElementById('serviceDetails');
+    detailsContainer.style.display = 'flex';
+    detailsContainer.innerHTML = `
+        <button id="back" class="border  border-2 border-slate-950 text-slate-400 rounded p-2 md:w-1/3">Back to Services</button>
+        <div id="providers"></div>
+        <div id="schedule"></div>
+        <button id="back" class="bg-blue-500 text-white rounded p-2 md:w-1/3">Book Now</button>
+    `;
+
+    document.getElementById('back').addEventListener('click', () => {
+        detailsContainer.style.display = 'none';
+        document.getElementById('servicesList').style.display = 'flex';
+    });
+
+    try {
+        const [providersRes, scheduleRes] = await Promise.all([
+            fetch('http://localhost:3000/providers'),
+            fetch('http://localhost:3000/schedule')
         ]);
-        if(!providersRes.ok || !scheduleRes.ok){
+        if (!providersRes.ok || !scheduleRes.ok) {
             console.log('Failed to fetch the details');
             return;
         }
-        const providers = await providersRes.json();
-        const schedule = await scheduleRes .json();
+        const allProviders = await providersRes.json();
+        const allSchedules = await scheduleRes.json();
 
-        renderProviders(providers)
-        renderSchedule(schedule)
-     } catch (error) {
+        const filteredProviders = allProviders.filter(provider =>
+            provider.servicesOffered.includes(service.id)
+        )
+        const providerIds = filteredProviders.map(pro => pro.id);
+        const filteredSchedules = allSchedules.filter(schedule =>
+            providerIds.includes(schedule.providerId)
+        )
+
+        renderProviders(filteredProviders);
+        renderSchedule(filteredSchedules);
+    } catch (error) {
         console.error('An error occurred while fetching service details:', error);
-     }
+    }
 }
-function renderProviders(providers){
+
+function renderProviders(providers) {
     const providersDiv = document.getElementById('providers');
-    providersDiv.innerHTML = `<h4>Providers</h4>`
-    if (providers.length === 0 ){
-        providersDiv.innerHTML = `<p>No providers available for this service</p>`
+    providersDiv.innerHTML = `<h4 class="text-lg font-bold mb-2">Providers</h4>`;
+    if (providers.length === 0) {
+        providersDiv.innerHTML += `<p>No providers available for this service</p>`;
         return;
     }
     providers.forEach(provider => {
-        const pDiv = document.createElement('div')
+        const pDiv = document.createElement('div');
+        pDiv.className = "mb-4 p-3 border border-white rounded bg-cyan-50 shadow-xl/30 sm:w-1/2 md:w-1/3 lg:w-1/4 ";
         pDiv.innerHTML = `
-       <p><strong>Name:</strong>${provider.name}</p>
-        <p><strong>Location:</strong>${provider.location}</p>
-        <p><strong>Contact:</strong>${provider.contactPhone}</p>
-        <p><strong>Rating:</strong>${provider.rating}</p>
-         <p>${provider.description}</p>
-         `
-         providersDiv.appendChild(pDiv)
-    })
+            <p><strong>Name:</strong> ${provider.name}</p>
+            <p><strong>Location:</strong> ${provider.location}</p>
+            <p><strong>Contact:</strong> ${provider.contactPhone}</p>
+            <p><strong>Rating:</strong> ${provider.rating}</p>
+            <p>${provider.description}</p>
+        `;
+        providersDiv.appendChild(pDiv);
+    });
 }
-function renderSchedule(schedules){
-    const scheduleDiv = document.getElementById('schedule')
-    scheduleDiv.innerHTML = `<h4>Schedule</h4>`
-    if (schedules.length === 0 ){
-        scheduleDiv.innerHTML = `<p>No schedule avilable for this service</p>`
-        return
+
+function renderSchedule(schedules) {
+    const scheduleDiv = document.getElementById('schedule');
+    scheduleDiv.innerHTML = `<h4 class="text-lg font-bold mb-2">Schedule</h4>`;
+    if (schedules.length === 0) {
+        scheduleDiv.innerHTML += `<p>No schedule available for this service</p>`;
+        return;
     }
-    schedules.forEach(schedule =>{
-    const paragraph = document.createElement('div')
-    paragraph .innerHTML = `
-    <p><strong>Days:</strong>${schedule.dayOfWeek}</p>
-    <p><strong>Start Time:</strong>${schedule.startTime}</p>
-    <p><strong>End Time:</strong>${schedule.endTime}</p>
-    `
-    scheduleDiv.appendChild(paragraph)
-    })
-}
-function resetBookingForm(){
-    const bookingForm = document.getElementById('form')
-    bookingForm.reset()
+    schedules.forEach(schedule => {
+        const paragraph = document.createElement('div');
+        paragraph.className = " p-6 border border-white rounded bg-cyan-50 shadow-xl/30 sm:w-1/2 md:w-1/3 lg:w-1/4 ";
+        paragraph.innerHTML = `
+            <p><strong>Days:</strong> ${schedule.dayOfWeek}</p>
+            <p><strong>Start Time:</strong> ${schedule.startTime}</p>
+            <p><strong>End Time:</strong> ${schedule.endTime}</p>
+        `;
+        scheduleDiv.appendChild(paragraph);
+    });
 }

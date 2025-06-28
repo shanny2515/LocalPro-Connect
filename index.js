@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded' , async ()=>{
      await loadServices();
 })
  async function loadServices(){
-   const res =  await fetch('/api/services');
+   const res =  await fetch("http://localhost:3000/services");
    const services = await res.json();
     return renderServices(services)
 }
@@ -58,8 +58,8 @@ async function showServiceDetails(service) {
 
     try {
         const [providersRes, scheduleRes] = await Promise.all([
-            fetch('/api/providers'),
-            fetch('/api/schedule')
+            fetch('http://localhost:3000/providers'),
+            fetch('http://localhost:3000/schedule')
         ]);
         if (!providersRes.ok || !scheduleRes.ok) {
             console.log('Failed to fetch the details');
@@ -142,7 +142,7 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
         return;
       }
       try{
-        const response = await fetch('/api/bookings', {
+        const response = await fetch('http://localhost:3000/bookings', {
             method:'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(bookingData)

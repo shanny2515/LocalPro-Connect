@@ -1,9 +1,0 @@
-{
-    "name": "local-pro-connect",
-    "version": "1.0.0",
-    "main": "api/server.js",
-    "dependencies": {
-      "json-server": "^0.17.0"
-    }
-  }
-  

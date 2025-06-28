@@ -175,7 +175,8 @@
         "startTime": "10:00",
         "endTime": "10:45",
         "customerName": "John Doe",
-        "customerPhone": "0711223344"
+        "customerPhone": "0711223344",
+        "request":"Please be punctual"
       },
       {
         "id": "b_002",
@@ -185,7 +186,8 @@
         "startTime": "11:00",
         "endTime": "11:45",
         "customerName": "Alice Mwangi",
-        "customerPhone": "0711334455"
+        "customerPhone": "0711334455",
+        "request":"Please be punctual"
       },
       {
         "id": "b_003",
@@ -195,7 +197,8 @@
         "startTime": "14:00",
         "endTime": "15:30",
         "customerName": "Brenda Onyango",
-        "customerPhone": "0722334455"
+        "customerPhone": "0722334455",
+        "request":"Please be punctual"
       },
       {
         "id": "b_004",
@@ -205,7 +208,8 @@
         "startTime": "09:00",
         "endTime": "11:00",
         "customerName": "David Kamau",
-        "customerPhone": "0733445566"
+        "customerPhone": "0733445566",
+         "request":"Please be punctual"
       },
       {
         "id": "b_005",
@@ -215,7 +219,8 @@
         "startTime": "07:00",
         "endTime": "08:00",
         "customerName": "Emily Chege",
-        "customerPhone": "0744556677"
+        "customerPhone": "0744556677",
+         "request":"Please be punctual"
       }
     ]
   }

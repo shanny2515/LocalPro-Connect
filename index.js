@@ -1,11 +1,8 @@
-
-const  bookEndPoint = "http://localhost:3000/bookings"
-
 document.addEventListener('DOMContentLoaded' , async ()=>{
      const getStarted = document.getElementById('started')
      getStarted.addEventListener('click', ()=>{
         document.getElementById('servicesList').style.display = 'flex'
-        document.getElementById('first').style.display = 'none'
+        document.getElementById('first').classList.add('hidden')
      })
      await loadServices();
 })
@@ -47,8 +44,12 @@ async function showServiceDetails(service) {
         <button id="back" class="border  border-2 border-slate-950 text-slate-400 rounded p-2 md:w-1/3">Back to Services</button>
         <div id="providers"></div>
         <div id="schedule"></div>
-        <button id="back" class="bg-blue-500 text-white rounded p-2 md:w-1/3">Book Now</button>
+        <button id="cont" class="bg-blue-500 text-white rounded p-2 md:w-1/3 ">Book Now</button>
     `;
+    document.getElementById('cont').addEventListener('click', () => {
+        document.getElementById('serviceDetails').style.display = 'none';
+        document.getElementById('book').style.display = 'block';
+    });
 
     document.getElementById('back').addEventListener('click', () => {
         detailsContainer.style.display = 'none';
@@ -121,3 +122,40 @@ function renderSchedule(schedules) {
         scheduleDiv.appendChild(paragraph);
     });
 }
+document.getElementById('back2').addEventListener('click', ()=>{
+    document.getElementById('book').style.display = 'none';
+  document.getElementById('serviceDetails').style.display = 'flex';
+})
+document.getElementById('form').addEventListener('submit', async (e) =>{
+    e.preventDefault();
+    const bookingData = {
+        customerName:document.getElementById('name').value.trim(),
+        customerPhone: document.getElementById('number').value.trim(),
+    startTime: document.getElementById('sTime').value,
+    endTime: document.getElementById('eTime').value,
+    date: document.getElementById('date').value,
+    notes: document.getElementById('notes').value.trim()
+    };
+
+    if (!bookingData.customerName || !bookingData.customerPhone || !bookingData.startTime || !bookingData.endTime || !bookingData.date) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      try{
+        const response = await fetch('http://localhost:3000/bookings', {
+            method:'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(bookingData)
+        })
+        if (response.ok){
+            alert('booking Succsesful!')
+            document.getElementById('book').style.display = 'none'
+            document.getElementById('first').classList.remove('hidden')
+        }else{
+            alert('Booking failed.Please try again')
+        }
+      } catch (error){
+        alert('An error occurred.Please try again')
+        console.log(error);
+      }
+})

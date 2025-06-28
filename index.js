@@ -151,7 +151,7 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
             document.getElementById('book').style.display = 'none'
             document.getElementById('first').classList.remove('hidden')
         }else{
-            alert('Booking failed.Please try again')
+            alert('Booking failed.')
         }
       } catch (error){
         alert('An error occurred.Please try again')

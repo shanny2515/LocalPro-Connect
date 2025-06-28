@@ -43,8 +43,11 @@
     color: #ffffff;
 }
 #form{
-    margin-left: 20%;
+    margin-left: 15%;
     padding-left: 10px;
     border-radius: 10px;
     border:0px;
+}
+#btn{
+  text-align: center;  
 }

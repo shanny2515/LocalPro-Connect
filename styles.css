@@ -38,3 +38,13 @@
     background-color: black;
     color: #ffffff;
 }
+#back2:active{
+    background-color: black;
+    color: #ffffff;
+}
+#form{
+    margin-left: 20%;
+    padding-left: 10px;
+    border-radius: 10px;
+    border:0px;
+}

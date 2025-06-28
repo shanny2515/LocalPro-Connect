@@ -134,7 +134,7 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
     startTime: document.getElementById('sTime').value,
     endTime: document.getElementById('eTime').value,
     date: document.getElementById('date').value,
-    notes: document.getElementById('notes').value.trim()
+    request: document.getElementById('request').value.trim()
     };
 
     if (!bookingData.customerName || !bookingData.customerPhone || !bookingData.startTime || !bookingData.endTime || !bookingData.date) {

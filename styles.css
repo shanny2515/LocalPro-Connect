@@ -1,3 +1,6 @@
+body{
+    background-color:#e9ecef;
+}
 #first{
    margin:15%; 
    font-size: xx-large;
@@ -29,6 +32,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
     text-align: center;
+    color: #14213d;
 }
 #serviceDetails{
     margin-left: 30%;
@@ -38,6 +42,10 @@
     background-color: black;
     color: #ffffff;
 }
+#back2{
+    margin-top: 50px;
+    margin-left: 50px;
+}
 #back2:active{
     background-color: black;
     color: #ffffff;
@@ -46,8 +54,17 @@
     margin-left: 15%;
     padding-left: 10px;
     border-radius: 10px;
-    border:0px;
+    border:2px;
 }
 #btn{
   text-align: center;  
+}
+#h22{
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center;
+}
+.serviceCard{
+    color: #33415c;
 }

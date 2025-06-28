@@ -172,8 +172,7 @@
         "providerId": "prov_01",
         "serviceId": "svc_001",
         "date": "2025-06-27",
-        "startTime": "10:00",
-        "endTime": "10:45",
+        "time": "10:00",
         "customerName": "John Doe",
         "customerPhone": "0711223344",
         "request":"punctuality"
@@ -183,8 +182,7 @@
         "providerId": "prov_01",
         "serviceId": "svc_001",
         "date": "2025-06-27",
-        "startTime": "11:00",
-        "endTime": "11:45",
+        "time": "11:00",
         "customerName": "Alice Mwangi",
         "customerPhone": "0711334455",
          "request":"punctuality"
@@ -194,8 +192,7 @@
         "providerId": "prov_02",
         "serviceId": "svc_002",
         "date": "2025-06-28",
-        "startTime": "14:00",
-        "endTime": "15:30",
+        "time": "14:00",
         "customerName": "Brenda Onyango",
         "customerPhone": "0722334455",
          "request":"punctuality"
@@ -205,8 +202,7 @@
         "providerId": "prov_03",
         "serviceId": "svc_003",
         "date": "2025-06-30",
-        "startTime": "09:00",
-        "endTime": "11:00",
+        "time": "09:00",
         "customerName": "David Kamau",
         "customerPhone": "0733445566",
          "request":"punctuality"
@@ -216,8 +212,7 @@
         "providerId": "prov_04",
         "serviceId": "svc_004",
         "date": "2025-07-01",
-        "startTime": "07:00",
-        "endTime": "08:00",
+        "time": "07:00",
         "customerName": "Emily Chege",
         "customerPhone": "0744556677",
          "request":"punctuality"

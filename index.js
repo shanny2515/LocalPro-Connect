@@ -22,14 +22,14 @@ function renderServices(services){
     services.forEach(service => {
        const div = document.createElement('div') 
        div.className = "serviceCard"
-       div.classList.add( 'bg-white', 'p-6', 'rounded-lg', 'shadow-lg','w-full','sm:w-1/2', 'md:w-1/3', 'lg:w-1/4',);
+       div.classList.add( 'bg-cyan-50', 'p-6', 'rounded-lg', 'shadow-lg','w-full','sm:w-1/2', 'md:w-1/3', 'lg:w-1/4',);
        div.innerHTML=`
-       <h3>${service.name}</h3>
+       <h2 style="font-family:Verdana, Geneva, Tahoma, sans-serif">${service.name}</h2>
        <p><strong>Category:</strong>${service.category}</p>
        <p><strong>Duration:</strong>${service.durationMinutes}</p>
        <p><strong>Price:</strong>${service.priceKsh}</p>
        <p>${service.description}</p><br>
-       <button type="button" class="viewDetails">View providers</button><br><br>`
+       <button type="button" class="viewDetails transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-sky-800 ">View providers</button><br><br>`
        div.querySelector('.viewDetails').addEventListener('click', async () =>{
          await showServiceDetails(service)
        });
@@ -41,10 +41,10 @@ async function showServiceDetails(service) {
     const detailsContainer = document.getElementById('serviceDetails');
     detailsContainer.style.display = 'flex';
     detailsContainer.innerHTML = `
-        <button id="back" class="border  border-2 border-slate-950 text-slate-400 rounded p-2 md:w-1/3">Back to Services</button>
+        <button id="back" class="border  border-2 border-slate-950 text-slate-400 rounded p-2 md:w-1/3 transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-zinc-700 ">Back to Services</button>
         <div id="providers"></div>
         <div id="schedule"></div>
-        <button id="cont" class="bg-blue-500 text-white rounded p-2 md:w-1/3 ">Book Now</button>
+        <button id="cont" class="bg-blue-500 text-white rounded p-2 md:w-1/3 transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-sky-500  ">Ready To Book.</button>
     `;
     document.getElementById('cont').addEventListener('click', () => {
         document.getElementById('serviceDetails').style.display = 'none';
@@ -92,7 +92,7 @@ function renderProviders(providers) {
     }
     providers.forEach(provider => {
         const pDiv = document.createElement('div');
-        pDiv.className = "mb-4 p-3 border border-white rounded bg-cyan-50 shadow-xl/30 sm:w-1/2 md:w-1/3 lg:w-1/4 ";
+        pDiv.className = "mb-4 p-2 border border-white rounded bg-cyan-50 shadow-xl/30 sm:w-1/2 md:w-1/3 lg:w-1/2 ";
         pDiv.innerHTML = `
             <p><strong>Name:</strong> ${provider.name}</p>
             <p><strong>Location:</strong> ${provider.location}</p>
@@ -113,7 +113,7 @@ function renderSchedule(schedules) {
     }
     schedules.forEach(schedule => {
         const paragraph = document.createElement('div');
-        paragraph.className = " p-6 border border-white rounded bg-cyan-50 shadow-xl/30 sm:w-1/2 md:w-1/3 lg:w-1/4 ";
+        paragraph.className = " p-6 border border-white rounded bg-cyan-50 shadow-xl/30 sm:w-1/2 md:w-1/3 lg:w-1/2 ";
         paragraph.innerHTML = `
             <p><strong>Days:</strong> ${schedule.dayOfWeek}</p>
             <p><strong>Start Time:</strong> ${schedule.startTime}</p>
@@ -131,10 +131,9 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
     const bookingData = {
         customerName:document.getElementById('name').value.trim(),
         customerPhone: document.getElementById('number').value.trim(),
-    startTime: document.getElementById('sTime').value,
-    endTime: document.getElementById('eTime').value,
-    date: document.getElementById('date').value,
-    request: document.getElementById('request').value.trim()
+        time: document.getElementById('time').value.trim(),
+        date: document.getElementById('date').value.trim(),
+        request: document.getElementById('request').value.trim()
     };
 
     if (!bookingData.customerName || !bookingData.customerPhone || !bookingData.startTime || !bookingData.endTime || !bookingData.date) {

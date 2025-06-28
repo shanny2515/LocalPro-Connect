@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>LocalPro Connect</title>
   </head>
-  <body  class="bg-sky-100">
-    <div class="container-fluid"></div>
+  <body  class="container-fluid">
     <header id="first" class="border shadow-xl/30 p-25 bg-sky-50 " >
       <h1 class="bg-linear-to-r from-blue-950 to-gray-950 bg-clip-text text-5xl font-extrabold text-transparent text-shadow-lg ">DISCOVER CONVINIENT LOCAL SERVICES, INSTANTLY</h1>
       <div style="text-align: center;">
-      <button type="button" id="started" class="bg-indigo-500 shadow-lg shadow-indigo-500/50">Get Started</button>
+      <button type="button" id="started" class="bg-indigo-500 shadow-lg shadow-indigo-500/50 transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-blue-500 ">Get Started</button>
       </div>
     </header>
     <div id="servicesList" class="m-20 flex flex-wrap gap-4 justify-center"></div>
@@ -22,20 +21,19 @@
       <div id="schedule"></div>
       </div>
       <div id="book" style="display: none;">
-        <button type="button" id="back2" class="border  border-2 border-slate-950 text-slate-400 rounded p-2">Go Back</button>
-      <form id="form" class=" inset-shadow-sm inset-shadow-sky-500/50  h-150 bg-blue-100 w-99 lg:w-3/4  mt-30">
-        <input type="text" name="customerName" placeholder="Full Name" id="name" class="border-2 border-transparent border-b-black/50 pt-10"><br>
-        <input type="number" name="customerPhone" placeholder="Phone Number" id="number" class="border-2 border-transparent border-b-black/50 pt-10"><br>
-        <input type="time" name="startTime" placeholder="Start Time" id="sTime" class="border-2 border-transparent border-b-black/50 pt-10"><br>
-        <input type="time" name="endTime" placeholder="End Time" id="eTime" class="border-2 border-transparent border-b-black/50 pt-10"><br>
-        <input type="datetime-local" name="date" id="date" class="border-2 border-transparent border-b-black/50 pt-17"><br>
-        <textarea name="request" id="request" placeholder="Any Special Requests?" class="border-2 border-transparent border-b-black/50 pt-10"></textarea><br><br>
+        <button type="button" id="back2" class="border  border-2 border-slate-950 text-slate-400 rounded p-2 transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-zinc-700 ">Go Back</button>
+        <h2 id="h22" class="font-extrabold text-transparent text-shadow-lg ">Lets get you booked!</h2>
+      <form id="form" class=" inset-shadow-sm inset-shadow-sky-500/50  h-100 bg-blue-100 w-99 lg:w-3/4  mt-30">
+        <input type="text" name="customerName"id="name" placeholder="Full Name" class="border-2 border-transparent border-b-black/10 pt-5 w-100"><br>
+        <input type="number" name="customerPhone" id="number" placeholder="Number" class="border-2 border-transparent border-b-black/10 pt-5 w-100"><br>
+        <input type="date" name="date" id="date" class="border-2 border-transparent border-b-black/10 pt-5 w-100"><br>
+        <input type="time" name="time" id="time" class="border-2 border-transparent border-b-black/10 pt-5 w-100"><br>
+        <textarea name="request" id="request" placeholder="Any Special Requests?" class="border-2 border-transparent border-b-black/10 pt-5 w-100"></textarea><br><br>
         <div id="btn">
-        <button type="submit" class=" mb-10 rounded w-40 h-10 shadow-xl shadow-black/40">Book Now</button><br>
+        <button type="submit" class=" mb-10 rounded w-40 h-10 shadow-xl shadow-black/40 transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-blue-300 ">Book Now</button><br>
         </div>
       </form>
       </div>
-    </div>
     <script src="./index.js"></script>
   </body>
 </html>

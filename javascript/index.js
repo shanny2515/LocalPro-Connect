@@ -171,6 +171,7 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
         if (response.ok){
             alert('booking Succsesful!')
             form.reset();
+            document.getElementById('next').classList.remove('hidden')
         }else{
             alert('Booking failed.')
         }

@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded' , async ()=>{
+document.addEventListener('DOMContentLoaded' , async (e)=>{
+    e.preventDefault()
      const getStarted = document.getElementById('started')
      getStarted.addEventListener('click', ()=>{
         document.getElementById('servicesList').style.display = 'flex'
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded' , async ()=>{
      await loadServices();
 })
  async function loadServices(){
-   const res =  await fetch("https://database-csvk.onrender.com/services");
+   const res =  await fetch("http://localhost:3000/services");
    const services = await res.json();
     return renderServices(services)
 }
@@ -44,13 +45,7 @@ async function showServiceDetails(service) {
         <button id="back" class="border  border-2 border-slate-950 text-slate-400 rounded p-2 md:w-1/3 transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-zinc-700 ">Back to Services</button>
         <div id="providers"></div>
         <div id="schedule"></div>
-        <button id="cont" class="bg-blue-500 text-white rounded p-2 md:w-1/3 transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-sky-500  ">Ready To Book.</button>
     `;
-    document.getElementById('cont').addEventListener('click', () => {
-        document.getElementById('serviceDetails').style.display = 'none';
-        document.getElementById('book').style.display = 'block';
-    });
-
     document.getElementById('back').addEventListener('click', () => {
         detailsContainer.style.display = 'none';
         document.getElementById('servicesList').style.display = 'flex';
@@ -58,8 +53,8 @@ async function showServiceDetails(service) {
 
     try {
         const [providersRes, scheduleRes] = await Promise.all([
-            fetch('https://database-csvk.onrender.com/providers'),
-            fetch('https://database-csvk.onrender.com/schedule')
+            fetch('http://localhost:3000/providers'),
+            fetch('http://localhost:3000/schedule')
         ]);
         if (!providersRes.ok || !scheduleRes.ok) {
             console.log('Failed to fetch the details');
@@ -76,14 +71,21 @@ async function showServiceDetails(service) {
             providerIds.includes(schedule.providerId)
         )
 
-        renderProviders(filteredProviders);
+        renderProviders(filteredProviders, service.id);
         renderSchedule(filteredSchedules);
     } catch (error) {
         console.error('An error occurred while fetching service details:', error);
     }
 }
+function showBookingForm( serviceId, providerId){
+    document.getElementById('serviceDetails').style.display = 'none'
+    document.getElementById('book').style.display = 'block';
+    const form = document.getElementById('form');
+    form.dataset.serviceId = serviceId;
+    form.dataset.providerId= providerId
+}
 
-function renderProviders(providers) {
+function renderProviders(providers, serviceId) {
     const providersDiv = document.getElementById('providers');
     providersDiv.innerHTML = `<h4 class="text-lg font-bold mb-2">Providers</h4>`;
     if (providers.length === 0) {
@@ -99,9 +101,21 @@ function renderProviders(providers) {
             <p><strong>Contact:</strong> ${provider.contactPhone}</p>
             <p><strong>Rating:</strong> ${provider.rating}</p>
             <p>${provider.description}</p>
+            <button  class=" bookProviderBtn bg-blue-500 text-white rounded p-2 lg:w-1/2 transition delay-50 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  hover:bg-sky-500  " 
+                data-provider-id="${provider.id}" 
+                data-service-id="${serviceId}">
+                Book with this provider
+            </button>
         `;
         providersDiv.appendChild(pDiv);
     });
+        document.querySelectorAll('.bookProviderBtn').forEach(btn =>{
+            btn.addEventListener('click', (e) =>{
+                const providerId = btn.getAttribute('data-provider-id')
+                const serviceId = btn.getAttribute('data-service-id')
+                showBookingForm(serviceId , providerId)
+            })
+        })
 }
 
 function renderSchedule(schedules) {
@@ -122,18 +136,26 @@ function renderSchedule(schedules) {
         scheduleDiv.appendChild(paragraph);
     });
 }
+
 document.getElementById('back2').addEventListener('click', ()=>{
     document.getElementById('book').style.display = 'none';
   document.getElementById('serviceDetails').style.display = 'flex';
 })
+const form = document.getElementById('form')
 document.getElementById('form').addEventListener('submit', async (e) =>{
     e.preventDefault();
+    const form = e.target;
+    const serviceId = form.dataset.serviceId
+    const providerId= form.dataset.providerId
+
     const bookingData = {
         customerName:document.getElementById('name').value.trim(),
         customerPhone: document.getElementById('number').value.trim(),
         time: document.getElementById('time').value.trim(),
         date: document.getElementById('date').value.trim(),
-        request: document.getElementById('request').value.trim()
+        request: document.getElementById('request').value.trim(),
+        serviceId:serviceId,
+        providerId:providerId
     };
 
     if (!bookingData.customerName || !bookingData.customerPhone || !bookingData.time || !bookingData.date) {
@@ -141,15 +163,15 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
         return;
       }
       try{
-        const response = await fetch('https://database-csvk.onrender.com/bookings', {
+        const response = await fetch('http://localhost:3000/bookings', {
             method:'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(bookingData)
         })
         if (response.ok){
             alert('booking Succsesful!')
-            document.getElementById('book').style.display = 'none'
-            document.getElementById('first').classList.remove('hidden')
+            form.reset();
+            window.location.href = './bookings.html'
         }else{
             alert('Booking failed.')
         }
@@ -157,4 +179,8 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
         alert('An error occurred.Please try again')
         console.log(error);
       }
+      renderProviders(filteredProviders , serviceId)
+      renderSchedule(filteredSchedules) 
 })
+
+

@@ -171,7 +171,6 @@ document.getElementById('form').addEventListener('submit', async (e) =>{
         if (response.ok){
             alert('booking Succsesful!')
             form.reset();
-            window.location.href = './bookings.html'
         }else{
             alert('Booking failed.')
         }
